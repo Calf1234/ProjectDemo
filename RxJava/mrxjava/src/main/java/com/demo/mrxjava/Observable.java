@@ -73,4 +73,29 @@ public class Observable<T> implements ObservableOnSubscribe<T> {
             }
         });
     }
+
+    /**
+     * map变换操作符
+     *
+     * T == 上一层传递过来的类型  Integer  变换前的类型
+     * R == 给一层的类型         String   变换后的类型
+     *
+     */
+    public <R> Observable<R> map(Function<? super T, ? extends R> function) {// ? super T 可写模式
+        ObservableMap<T, R> observableMap = new ObservableMap<>(source, function);// source 上一层的能力
+        return new Observable<R>(observableMap); // source  该怎么来？     observableMap是source的实现类
+    }
+
+    // todo 给所有上游分配异步线程
+    public Observable<T> observables_On() {
+        // 实例化 处理上游的线程操作符
+        return create(new ObservableOnIO(source));
+    }
+
+    // todo 给下游分配Android主线程
+    public Observable<T> observers_AndroidMain_On() {
+        // 实例化 处理下游的线程操作符
+        ObserverAndroidMain_On<T> observerAndroidMain_on = new ObserverAndroidMain_On(source);
+        return create(observerAndroidMain_on);
+    }
 }
