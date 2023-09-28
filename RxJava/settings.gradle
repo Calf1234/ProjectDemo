@@ -1,3 +1,4 @@
 rootProject.name = "RxJava"
 include ':app'
 include ':mrxjava'
+include ':generic'
