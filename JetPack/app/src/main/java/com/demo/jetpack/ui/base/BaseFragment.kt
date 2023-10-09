@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.demo.jetpack.bridge.callback.SharedViewModel
 import com.demo.jetpack.ui.App
-import com.xiangxue.architecture.bridge.callback.SharedViewModel
 
 open class BaseFragment : Fragment() {
     protected var mActivity: AppCompatActivity? = null // 为了 让所有的子类 持有 Activity

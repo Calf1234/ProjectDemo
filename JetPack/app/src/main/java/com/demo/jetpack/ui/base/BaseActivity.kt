@@ -4,8 +4,8 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.demo.jetpack.bridge.callback.SharedViewModel
 import com.demo.jetpack.ui.App
-import com.xiangxue.architecture.bridge.callback.SharedViewModel
 import com.xiangxue.architecture.data.manager.NetworkStateManager
 import com.xiangxue.architecture.utils.BarUtils
 
